@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lafiq-health/maternal-continuity-module/schemas/maternal-journey-event.schema.json",
+  "title": "Maternal Journey Event",
+  "description": "A reusable schema for representing a de-identified event within a maternal-care continuity journey.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "event_id",
+    "journey_id",
+    "stage",
+    "care_step",
+    "status",
+    "event_time"
+  ],
+
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Unique identifier for this journey event. Must not contain patient-identifying information."
+    },
+
+    "journey_id": {
+      "type": "string",
+      "description": "Pseudonymous or synthetic identifier used to associate events belonging to the same maternal-care journey."
+    },
+
+    "stage": {
+      "type": "string",
+      "description": "The maternal-care stage in which this event occurred.",
+      "enum": [
+        "antenatal_care",
+        "investigation",
+        "referral_handoff",
+        "delivery_preparation",
+        "delivery",
+        "postnatal_follow_up",
+        "newborn_transition"
+      ]
+    },
+
+    "care_step": {
+      "type": "string",
+      "description": "A short implementation-neutral identifier for the planned care step."
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Current continuity status of the care step.",
+      "enum": [
+        "planned",
+        "initiated",
+        "completed",
+        "delayed",
+        "unresolved"
+      ]
+    },
+
+    "event_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time associated with the event, expressed in ISO 8601 format."
+    },
+
+    "expected_completion_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Optional expected completion time for the care step."
+    },
+
+    "completed_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Time the care step was completed, when applicable."
+    },
+
+    "service_available": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the required provider, facility or service was available when needed."
+    },
+
+    "referral_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indicates whether progression from this step required a referral."
+    },
+
+    "referral_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional de-identified reference to a related referral event."
+    },
+
+    "barriers": {
+      "type": "array",
+      "description": "High-level reasons that delayed or prevented completion of the care step.",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "cost",
+          "transport",
+          "distance",
+          "provider_unavailable",
+          "service_unavailable",
+          "facility_capacity",
+          "delay",
+          "incomplete_referral",
+          "unable_to_attend",
+          "other"
+        ]
+      }
+    },
+
+    "continuity_outcome": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "High-level continuity outcome following this event.",
+      "enum": [
+        "progressed",
+        "pending",
+        "interrupted",
+        "completed",
+        null
+      ]
+    },
+
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional broad implementation region, such as a state or district. Do not use a patient's home address."
+    },
+
+    "source_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "General source of the event information.",
+      "enum": [
+        "patient",
+        "care_navigator",
+        "provider",
+        "facility",
+        "system",
+        null
+      ]
+    }
+  }
+}
