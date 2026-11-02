@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lafiq-health/maternal-continuity-module/schemas/referral-status.schema.json",
+  "title": "Maternal Referral Status",
+  "description": "A reusable schema for representing the status and outcome of a de-identified referral within a maternal-care journey.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "referral_id",
+    "journey_id",
+    "referral_type",
+    "status",
+    "created_time"
+  ],
+
+  "properties": {
+    "referral_id": {
+      "type": "string",
+      "description": "Unique de-identified identifier for the referral."
+    },
+
+    "journey_id": {
+      "type": "string",
+      "description": "Pseudonymous or synthetic identifier linking the referral to a maternal-care journey."
+    },
+
+    "referral_type": {
+      "type": "string",
+      "description": "General type of service or handoff required.",
+      "enum": [
+        "clinical_review",
+        "diagnostic_test",
+        "specialist_review",
+        "facility_handoff",
+        "delivery_facility",
+        "postnatal_follow_up",
+        "newborn_care",
+        "other"
+      ]
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Current referral status.",
+      "enum": [
+        "created",
+        "sent",
+        "accepted",
+        "scheduled",
+        "completed",
+        "delayed",
+        "declined",
+        "cancelled",
+        "unresolved"
+      ]
+    },
+
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the referral was created."
+    },
+
+    "scheduled_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Scheduled referral appointment or handoff time, when applicable."
+    },
+
+    "completed_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Date and time the referral was completed, when applicable."
+    },
+
+    "destination_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "General destination category without identifying a specific provider.",
+      "enum": [
+        "primary_care",
+        "hospital",
+        "specialist_service",
+        "laboratory",
+        "maternity_facility",
+        "postnatal_service",
+        "newborn_service",
+        "other",
+        null
+      ]
+    },
+
+    "service_available": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the required service was available at the intended destination."
+    },
+
+    "accepted_by_destination": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the destination accepted the referral."
+    },
+
+    "patient_attended": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the patient attended or completed the referred care step."
+    },
+
+    "barriers": {
+      "type": "array",
+      "description": "High-level barriers affecting referral completion.",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "cost",
+          "transport",
+          "distance",
+          "provider_unavailable",
+          "service_unavailable",
+          "facility_capacity",
+          "scheduling_delay",
+          "referral_not_accepted",
+          "unable_to_attend",
+          "communication_failure",
+          "other"
+        ]
+      }
+    },
+
+    "outcome": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "High-level referral outcome.",
+      "enum": [
+        "completed",
+        "pending",
+        "interrupted",
+        "redirected",
+        "unresolved",
+        null
+      ]
+    },
+
+    "follow_up_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indicates whether further follow-up is required after this referral event."
+    },
+
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional broad implementation region such as a state or district."
+    }
+  }
+}
