@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lafiq-health/maternal-continuity-module/schemas/follow-up-status.schema.json",
+  "title": "Maternal Follow-up Status",
+  "description": "A reusable schema for representing the status and outcome of de-identified follow-up activity within a maternal-care journey.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "follow_up_id",
+    "journey_id",
+    "follow_up_type",
+    "status",
+    "created_time"
+  ],
+
+  "properties": {
+    "follow_up_id": {
+      "type": "string",
+      "description": "Unique de-identified identifier for the follow-up event."
+    },
+
+    "journey_id": {
+      "type": "string",
+      "description": "Pseudonymous or synthetic identifier linking the follow-up to a maternal-care journey."
+    },
+
+    "related_event_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional reference to the journey event, referral or care step that triggered follow-up."
+    },
+
+    "follow_up_type": {
+      "type": "string",
+      "description": "General type of follow-up required.",
+      "enum": [
+        "investigation_result",
+        "referral_completion",
+        "clinical_review",
+        "antenatal_follow_up",
+        "delivery_follow_up",
+        "postnatal_follow_up",
+        "newborn_follow_up",
+        "unresolved_care_step",
+        "other"
+      ]
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Current status of the follow-up.",
+      "enum": [
+        "required",
+        "scheduled",
+        "in_progress",
+        "completed",
+        "delayed",
+        "missed",
+        "unresolved",
+        "cancelled"
+      ]
+    },
+
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the need for follow-up was recorded."
+    },
+
+    "scheduled_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Scheduled follow-up time, when applicable."
+    },
+
+    "completed_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Date and time the follow-up was completed, when applicable."
+    },
+
+    "follow_up_required": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indicates whether further action remains necessary."
+    },
+
+    "care_step_resolved": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the care step that triggered follow-up has been resolved."
+    },
+
+    "patient_reached": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether contact or engagement was successfully established where relevant."
+    },
+
+    "service_completed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the underlying service or care activity was completed."
+    },
+
+    "barriers": {
+      "type": "array",
+      "description": "High-level barriers affecting successful follow-up.",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "cost",
+          "transport",
+          "distance",
+          "patient_unreachable",
+          "provider_unavailable",
+          "service_unavailable",
+          "facility_capacity",
+          "scheduling_delay",
+          "unable_to_attend",
+          "communication_failure",
+          "other"
+        ]
+      }
+    },
+
+    "outcome": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "High-level outcome of the follow-up process.",
+      "enum": [
+        "resolved",
+        "pending",
+        "interrupted",
+        "requires_further_follow_up",
+        "unresolved",
+        null
+      ]
+    },
+
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional broad implementation region such as a state or district."
+    }
+  }
+}
