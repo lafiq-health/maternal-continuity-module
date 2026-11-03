@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lafiq-health/maternal-continuity-module/schemas/maternal-journey.schema.json",
+  "title": "Maternal Continuity Journey",
+  "description": "A reusable schema for representing a de-identified maternal-care continuity journey and its related events, referrals and follow-up records.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "journey_id",
+    "journey_status",
+    "events"
+  ],
+
+  "properties": {
+    "journey_id": {
+      "type": "string",
+      "description": "Pseudonymous or synthetic identifier for the maternal-care journey."
+    },
+
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional broad implementation region such as a state or district."
+    },
+
+    "journey_status": {
+      "type": "string",
+      "description": "High-level status of the maternal-care journey.",
+      "enum": [
+        "planned",
+        "in_progress",
+        "interrupted",
+        "completed",
+        "closed"
+      ]
+    },
+
+    "events": {
+      "type": "array",
+      "description": "Journey events associated with this maternal-care journey.",
+      "items": {
+        "$ref": "./maternal-journey-event.schema.json"
+      }
+    },
+
+    "referrals": {
+      "type": "array",
+      "default": [],
+      "description": "Referral records associated with this maternal-care journey.",
+      "items": {
+        "$ref": "./referral-status.schema.json"
+      }
+    },
+
+    "follow_ups": {
+      "type": "array",
+      "default": [],
+      "description": "Follow-up records associated with this maternal-care journey.",
+      "items": {
+        "$ref": "./follow-up-status.schema.json"
+      }
+    }
+  }
+}
