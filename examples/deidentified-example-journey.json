@@ -1,7 +1,8 @@
+```json
 {
   "journey_id": "MJ-ENUGU-DEMO-001",
   "region": "Enugu",
-  "journey_status": "in_progress",
+  "journey_status": "completed",
 
   "events": [
     {
@@ -10,9 +11,9 @@
       "stage": "antenatal_care",
       "care_step": "initial_antenatal_visit",
       "status": "completed",
-      "event_time": "2026-09-03T09:00:00Z",
+      "event_time": "2026-08-04T09:00:00Z",
       "expected_completion_time": null,
-      "completed_time": "2026-09-03T09:45:00Z",
+      "completed_time": "2026-08-04T09:45:00Z",
       "service_available": true,
       "referral_required": false,
       "referral_id": null,
@@ -21,14 +22,33 @@
       "region": "Enugu",
       "source_type": "provider"
     },
+
     {
       "event_id": "EVT-002",
       "journey_id": "MJ-ENUGU-DEMO-001",
       "stage": "investigation",
       "care_step": "antenatal_blood_test",
+      "status": "planned",
+      "event_time": "2026-08-04T10:00:00Z",
+      "expected_completion_time": "2026-08-07T12:00:00Z",
+      "completed_time": null,
+      "service_available": true,
+      "referral_required": false,
+      "referral_id": null,
+      "barriers": [],
+      "continuity_outcome": "pending",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-003",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "investigation",
+      "care_step": "antenatal_blood_test",
       "status": "delayed",
-      "event_time": "2026-09-03T10:00:00Z",
-      "expected_completion_time": "2026-09-06T12:00:00Z",
+      "event_time": "2026-08-08T09:00:00Z",
+      "expected_completion_time": "2026-08-07T12:00:00Z",
       "completed_time": null,
       "service_available": true,
       "referral_required": false,
@@ -40,15 +60,16 @@
       "region": "Enugu",
       "source_type": "patient"
     },
+
     {
-      "event_id": "EVT-003",
+      "event_id": "EVT-004",
       "journey_id": "MJ-ENUGU-DEMO-001",
       "stage": "investigation",
       "care_step": "antenatal_blood_test",
       "status": "completed",
-      "event_time": "2026-09-08T08:30:00Z",
-      "expected_completion_time": "2026-09-06T12:00:00Z",
-      "completed_time": "2026-09-08T09:10:00Z",
+      "event_time": "2026-08-10T08:30:00Z",
+      "expected_completion_time": "2026-08-07T12:00:00Z",
+      "completed_time": "2026-08-10T09:15:00Z",
       "service_available": true,
       "referral_required": false,
       "referral_id": null,
@@ -57,14 +78,33 @@
       "region": "Enugu",
       "source_type": "provider"
     },
+
     {
-      "event_id": "EVT-004",
+      "event_id": "EVT-005",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "referral_handoff",
+      "care_step": "specialist_referral",
+      "status": "initiated",
+      "event_time": "2026-08-10T10:00:00Z",
+      "expected_completion_time": "2026-08-14T12:00:00Z",
+      "completed_time": null,
+      "service_available": null,
+      "referral_required": true,
+      "referral_id": "REF-001",
+      "barriers": [],
+      "continuity_outcome": "pending",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-006",
       "journey_id": "MJ-ENUGU-DEMO-001",
       "stage": "referral_handoff",
       "care_step": "specialist_referral",
       "status": "delayed",
-      "event_time": "2026-09-08T10:00:00Z",
-      "expected_completion_time": "2026-09-12T12:00:00Z",
+      "event_time": "2026-08-14T12:30:00Z",
+      "expected_completion_time": "2026-08-14T12:00:00Z",
       "completed_time": null,
       "service_available": false,
       "referral_required": true,
@@ -74,22 +114,95 @@
       ],
       "continuity_outcome": "interrupted",
       "region": "Enugu",
-      "source_type": "provider"
+      "source_type": "care_navigator"
     },
+
     {
-      "event_id": "EVT-005",
+      "event_id": "EVT-007",
       "journey_id": "MJ-ENUGU-DEMO-001",
       "stage": "referral_handoff",
       "care_step": "specialist_referral",
       "status": "completed",
-      "event_time": "2026-09-14T11:00:00Z",
-      "expected_completion_time": "2026-09-12T12:00:00Z",
-      "completed_time": "2026-09-14T11:40:00Z",
+      "event_time": "2026-08-17T11:00:00Z",
+      "expected_completion_time": "2026-08-14T12:00:00Z",
+      "completed_time": "2026-08-17T11:40:00Z",
       "service_available": true,
       "referral_required": true,
       "referral_id": "REF-001",
       "barriers": [],
       "continuity_outcome": "progressed",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-008",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "delivery_preparation",
+      "care_step": "delivery_facility_preparation",
+      "status": "completed",
+      "event_time": "2026-10-05T10:00:00Z",
+      "expected_completion_time": "2026-10-05T12:00:00Z",
+      "completed_time": "2026-10-05T10:30:00Z",
+      "service_available": true,
+      "referral_required": false,
+      "referral_id": null,
+      "barriers": [],
+      "continuity_outcome": "progressed",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-009",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "delivery",
+      "care_step": "delivery_care",
+      "status": "completed",
+      "event_time": "2026-10-18T06:00:00Z",
+      "expected_completion_time": null,
+      "completed_time": "2026-10-18T12:15:00Z",
+      "service_available": true,
+      "referral_required": false,
+      "referral_id": null,
+      "barriers": [],
+      "continuity_outcome": "progressed",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-010",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "postnatal_follow_up",
+      "care_step": "postnatal_review",
+      "status": "completed",
+      "event_time": "2026-10-25T09:00:00Z",
+      "expected_completion_time": "2026-10-25T12:00:00Z",
+      "completed_time": "2026-10-25T09:40:00Z",
+      "service_available": true,
+      "referral_required": false,
+      "referral_id": null,
+      "barriers": [],
+      "continuity_outcome": "progressed",
+      "region": "Enugu",
+      "source_type": "provider"
+    },
+
+    {
+      "event_id": "EVT-011",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "stage": "newborn_transition",
+      "care_step": "newborn_follow_up",
+      "status": "completed",
+      "event_time": "2026-10-25T10:00:00Z",
+      "expected_completion_time": "2026-10-25T12:00:00Z",
+      "completed_time": "2026-10-25T10:30:00Z",
+      "service_available": true,
+      "referral_required": false,
+      "referral_id": null,
+      "barriers": [],
+      "continuity_outcome": "completed",
       "region": "Enugu",
       "source_type": "provider"
     }
@@ -101,18 +214,16 @@
       "journey_id": "MJ-ENUGU-DEMO-001",
       "referral_type": "specialist_review",
       "status": "completed",
-      "created_time": "2026-09-08T10:00:00Z",
-      "scheduled_time": "2026-09-14T11:00:00Z",
-      "completed_time": "2026-09-14T11:40:00Z",
+      "created_time": "2026-08-10T10:00:00Z",
+      "scheduled_time": "2026-08-17T11:00:00Z",
+      "completed_time": "2026-08-17T11:40:00Z",
       "destination_type": "specialist_service",
       "service_available": true,
       "accepted_by_destination": true,
       "patient_attended": true,
-      "barriers": [
-        "service_unavailable"
-      ],
+      "barriers": [],
       "outcome": "completed",
-      "follow_up_required": true,
+      "follow_up_required": false,
       "region": "Enugu"
     }
   ],
@@ -121,12 +232,30 @@
     {
       "follow_up_id": "FU-001",
       "journey_id": "MJ-ENUGU-DEMO-001",
-      "related_event_id": "EVT-004",
+      "related_event_id": "EVT-006",
       "follow_up_type": "referral_completion",
       "status": "completed",
-      "created_time": "2026-09-09T09:00:00Z",
-      "scheduled_time": "2026-09-13T09:00:00Z",
-      "completed_time": "2026-09-14T11:40:00Z",
+      "created_time": "2026-08-14T13:00:00Z",
+      "scheduled_time": "2026-08-17T10:00:00Z",
+      "completed_time": "2026-08-17T11:40:00Z",
+      "follow_up_required": false,
+      "care_step_resolved": true,
+      "patient_reached": true,
+      "service_completed": true,
+      "barriers": [],
+      "outcome": "resolved",
+      "region": "Enugu"
+    },
+
+    {
+      "follow_up_id": "FU-002",
+      "journey_id": "MJ-ENUGU-DEMO-001",
+      "related_event_id": "EVT-009",
+      "follow_up_type": "postnatal_follow_up",
+      "status": "completed",
+      "created_time": "2026-10-18T13:00:00Z",
+      "scheduled_time": "2026-10-25T09:00:00Z",
+      "completed_time": "2026-10-25T09:40:00Z",
       "follow_up_required": false,
       "care_step_resolved": true,
       "patient_reached": true,
@@ -135,20 +264,6 @@
       "outcome": "resolved",
       "region": "Enugu"
     }
-  ],
-
-  "example_summary": {
-    "planned_steps": 3,
-    "completed_steps": 3,
-    "delayed_steps": 2,
-    "referrals_created": 1,
-    "referrals_completed": 1,
-    "follow_ups_completed": 1,
-    "barriers_observed": [
-      "cost",
-      "service_unavailable"
-    ]
-  },
-
-  "data_note": "This is synthetic demonstration data created solely to illustrate the Maternal Continuity Module. It does not represent a real patient."
+  ]
 }
+```
