@@ -1,4 +1,3 @@
-
 # Lafiq Maternal Continuity Module
 
 A reusable framework for representing and measuring continuity across maternal-care journeys.
@@ -11,10 +10,8 @@ It is designed to help health teams understand whether planned care steps were c
 
 ## Status
 
-**Stage:** Prototype and technical specification 
-
+**Stage:** Prototype and technical specification  
 **First planned regional test:** Enugu, Nigeria  
-
 **Patient data:** No identifiable patient data is stored in this repository
 
 The current work builds on Lafiq's existing Care Journey architecture and interactive prototype. The module will be refined during production development and real-world testing.
@@ -23,7 +20,7 @@ The current work builds on Lafiq's existing Care Journey architecture and intera
 
 ## What this module covers
 
-The Maternal Continuity Module will provide reusable definitions and schemas for:
+The Maternal Continuity Module provides reusable definitions and schemas for:
 
 - maternal-care journey stages;
 - planned and completed care steps;
@@ -90,7 +87,7 @@ These will be refined during regional testing.
 
 ---
 
-## Open-source scope
+## Proposed open-source scope
 
 This repository is intended to contain the reusable maternal-continuity layer, including:
 
@@ -112,7 +109,7 @@ The aim is to make this component useful independently of the wider Lafiq platfo
 
 This repository does not contain the full Lafiq product.
 
-The following remain outside the open-source module:
+The following remain outside the proposed open-source module:
 
 - Care Journey orchestration logic;
 - Care Navigator prioritisation and recovery workflows;
@@ -138,7 +135,7 @@ FHIR mapping has not yet been implemented and will be evaluated during productio
 
 ## Privacy
 
-This repository will not contain identifiable patient records.
+This repository does not contain identifiable patient records.
 
 The module is intended to work with structured, de-identified journey information.
 
@@ -175,6 +172,7 @@ examples/
 
 LICENSE-PROPOSED.md
 README.md
+```
 
 ---
 
@@ -195,17 +193,3 @@ Lafiq is a healthcare-continuity platform built around the patient's complete Ca
 The platform is designed to help patients move through fragmented care while generating structured evidence about where and why care becomes delayed or incomplete.
 
 The first planned maternal-health regional test will take place in Enugu, Nigeria.
-
-
-# Maternal Continuity Schemas
-
-This directory contains the machine-readable JSON Schemas used by the Lafiq Maternal Continuity Module.
-
-## Schema structure
-
-```text
-maternal-journey.schema.json
-    |
-    ├── maternal-journey-event.schema.json
-    ├── referral-status.schema.json
-    └── follow-up-status.schema.json
