@@ -153,7 +153,7 @@ Production use will require appropriate safeguards for:
 
 ---
 
-## Planned repository structure
+## Repository structure
 
 ```text
 docs/
@@ -164,15 +164,17 @@ docs/
   interoperability.md
 
 schemas/
+  README.md
+  maternal-journey.schema.json
   maternal-journey-event.schema.json
   referral-status.schema.json
   follow-up-status.schema.json
 
 examples/
   deidentified-example-journey.json
-```
 
-The structure may change as the module is implemented and tested.
+LICENSE-PROPOSED.md
+README.md
 
 ---
 
